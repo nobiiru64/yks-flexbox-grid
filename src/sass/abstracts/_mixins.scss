@@ -1,0 +1,77 @@
+// -----------------------------------------------------------------------------
+// Миксины
+// -----------------------------------------------------------------------------
+
+
+
+@mixin create-resolutions() {
+  @each $name, $resolution in $breakpoints {
+
+    @media #{map-get($breakpoints, $name)} {
+      @include create-columns($name);
+
+      .container {
+        width: map-get($container, $name);
+      }
+
+    }
+
+  }
+}
+
+@mixin create-columns($name) {
+  @for $column from 1 through $total-columns {
+
+    $percent: $column-width * $column;
+    .#{$class-slug}__#{$column}--#{$name} {
+      -ms-flex: 0 0 #{$percent + '%'} ;
+      flex: 0 0 #{$percent + '%'} ;
+      max-width: #{$percent + '%'} ;
+    }
+  }
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self (false) - Whether or not to include current selector
+/// @see https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin hover-style {
+  color: $gray-dark;
+  border-color: lighten($gray-dark, 33.3%);
+  outline: 0;
+}
+
+@mixin focus-style {
+  color: $gray-darker;
+  border-color: lighten($gray-darker, 33.3%);
+  outline: 0;
+}
+
+

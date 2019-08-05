@@ -1,0 +1,35 @@
+.container,
+.container-fluid{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  //margin-right: -15px;
+  //margin-left: -15px;
+  box-sizing: border-box;
+  flex: 0 1 100%;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+}
+
+@include create-resolutions();
+
+/* todo offsets */
+
+.container:after,
+.row:after {
+  clear: both;
+  content: "";
+  display: table;
+}

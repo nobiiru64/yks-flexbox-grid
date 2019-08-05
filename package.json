@@ -1,0 +1,11 @@
+{
+  "name": "yksgrid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass src/sass/main.scss dist/yks.css --output-style compressed"
+  },
+  "author": "",
+  "license": "ISC"
+}

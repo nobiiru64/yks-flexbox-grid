@@ -1,0 +1,61 @@
+// Buttons
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.btn,
+.button {
+  background-color: transparent;
+  border-radius: $global-radius;
+  border: 1px solid $border-color;
+  color: $color-secondary;
+  cursor: pointer;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: 100;
+  height: 38px;
+  letter-spacing: .1rem;
+  line-height: 38px;
+  margin-bottom: 1rem;
+  padding: 0 30px;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 200ms;
+  white-space: nowrap;
+  user-select: none;
+
+  &:focus,
+  &:hover {
+    @include hover-style;
+  }
+
+  &:focus{
+    outline: .1rem dotted $gray;
+  }
+
+  &:active{
+    background-color: $color-primary;
+  }
+}
+
+// Large-Sized
+.btn--lg {
+  font-size: inherit;
+  font-weight: 100;
+  height: 5.8rem;
+  line-height: 5.8rem;
+  vertical-align: middle;
+  padding: 0 4rem;
+}
+
+// Raised Style
+.btn--raised {
+  border-width: 0;
+  border-bottom-width: 3px;
+  border-bottom-color: rgba(0,0,0,0.15);
+}
+
+[type="submit"],
+[type="reset"],
+[type="button"] {
+  @extend .btn;
+}
+
